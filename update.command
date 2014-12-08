@@ -2,7 +2,7 @@ cd ${0%/*}
 
 
 if [ -d ".git" ]; then
-	git checkout
+	git pull
 else 
  	echo "no git repo found"
 fi
