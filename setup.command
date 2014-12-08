@@ -33,7 +33,7 @@ if [ "$i" = 1 ] ; then
   read inputp
 fi
 
-echo "${port[$inputp]}" > programmer
+echo "/dev/${port[$inputp]}" > programmer
 
 echo
 echo "##############################################################################"
