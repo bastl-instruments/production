@@ -1,7 +1,8 @@
 Hex files and uploader scripts
 -------
 
-1. Run setup.sh
-   (On Mac, you can start the terminal via the shortcut file in this folder and then drag setup.sh into it)
+1. Run setup.command and select a programmer
+2. Un upload script in subdirectory
+
 
 
