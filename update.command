@@ -3,4 +3,3 @@ if [ -d ".git" ]; then
 else 
 	git clone git://github.com/bastl-instruments/production	
 fi
-git pull
