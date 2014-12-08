@@ -42,4 +42,4 @@ echo
 echo "##############################################################################"
 echo
 
-echo "$inputp" > programmer
+echo ${port[$inputp]} > programmer
