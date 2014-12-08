@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ${0%/*}
+
 PROGRAMMER=$(head -n 1 ../programmer)
 
 avrdude -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:osc_noise.hex:a

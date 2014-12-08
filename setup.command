@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ${0%/*}
+
 echo "The following is a list of the available serial ports:"
 echo 
 
@@ -33,7 +35,7 @@ if [ "$i" = 1 ] ; then
   read inputp
 fi
 
-echo "/dev/${port[$inputp]}" > programmer
+echo "/dev/	${port[$inputp]}" > programmer
 
 echo
 echo "##############################################################################"
