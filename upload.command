@@ -2,7 +2,7 @@
 
 cd ${0%/*}
 
-PROGRAMMER=$(head -n 1 ../programmer)
+PROGRAMMER=$(head -n 1 programmer)
 
 
 files=$(ls *.hex)
