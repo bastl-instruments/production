@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROGRAMMER="/dev/ttyUSB0"
+PROGRAMMER="/dev/tty.usbserial-AD01SV7G"
 
 
 avrdude -pm328p -carduino -P$PROGRAMMER -v -v -Uflash:w:osc_noise.hex:a
