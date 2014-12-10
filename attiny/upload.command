@@ -47,10 +47,12 @@ echo "##########################################################################
 echo
 
 
-avrdude -pattiny85 -cstk500v1 -P"$PROGRAMMER" -v -v -Uflash:w:"${file[$input]}":a -b19200
+avrdude -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
+avrdude -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -Uflash:w:"${file[$input]}":a 
 
 while read -p "Hit ENTER to redo operation" ; do
-avrdude -pattiny85 -cstk500v1 -P"$PROGRAMMER" -v -v -Uflash:w:"${file[$input]}":a -b19200
+avrdude -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
+avrdude -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -Uflash:w:"${file[$input]}":a 
 done
 
 
