@@ -46,10 +46,10 @@ echo "##########################################################################
 echo
 
 
-avrdude -pattiny85 -cstk500v1 -P"$PROGRAMMER" -v -v -Uflash:w:"$files[input]":a -b19200
+avrdude -pattiny85 -cstk500v1 -P"$PROGRAMMER" -v -v -Uflash:w:"$files[$input]":a -b19200
 
 while read -p "Hit ENTER to redo operation" ; do
-avrdude -pattiny85 -cstk500v1 -P"$PROGRAMMER" -v -v -Uflash:w:"$files[input]":a -b19200
+avrdude -pattiny85 -cstk500v1 -P"$PROGRAMMER" -v -v -Uflash:w:"$files[$input]":a -b19200
 done
 
 

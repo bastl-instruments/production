@@ -46,10 +46,10 @@ echo "##########################################################################
 echo
 
 
-avrdude -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"$files[input]":a
+avrdude -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"$files[$input]":a
 
 while read -p "Hit ENTER to redo operation" ; do
-avrdude -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"$files[input]":a	
+avrdude -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"$files[$input]":a	
 done
 
 
