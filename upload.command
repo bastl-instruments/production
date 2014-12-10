@@ -5,21 +5,22 @@ cd ${0%/*}
 PROGRAMMER=$(head -n 1 programmer)
 
 
-files=$(ls *.hex)
-i=0
-for j in $files
+listOutput=$(ls *.hex)
+
+count=0
+for j in $listOutput
 do
-i=$(( i + 1 ))
-	file[i]=$j
+	count=$(( count + 1 ))
+	file[count]=$j
 done
 
- if [ "$i" = 0 ] ; then
+if [ "$count" = 0 ] ; then
 	echo "No relevant HEX files"
 	echo 
     exit
 fi
 
-if [ "$i" = 1 ] ; then
+if [ "$count" = 1 ] ; then
     input=1
     echo "One relevant HEX file so selecting it automatically : ${file[$input]}"
     echo
@@ -27,7 +28,7 @@ else
     echo "The following is a list of the available HEX files:"
     echo 
     i=0
-    for j in $files
+    for j in $listOutput
     do
       i=$(( i + 1 ))
       echo "$i. $j"
@@ -46,10 +47,10 @@ echo "##########################################################################
 echo
 
 
-avrdude -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"$files[$input]":a
+avrdude -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"${file[$input]}":a
 
 while read -p "Hit ENTER to redo operation" ; do
-avrdude -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"$files[$input]":a	
+avrdude -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"${file[$input]}":a	
 done
 
 
