@@ -54,21 +54,3 @@ avrdude -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"${file[$input]}":a
 done
 
 
-
-#files=$(ls *.hex)
-#i=0
-
-#for j in $files
-#do
-#    i=$(( i + 1 ))
-#done
-
-#if [ "$i" = 0 ] ; then
-#  echo "No hex file found"
-#  echo 
-#  exit
-#fi
-
-#if [ "$i" = 1 ] ; then
-
-
