@@ -47,7 +47,7 @@ echo "##########################################################################
 echo
 
 
-./avrdude -C./avrdude.conf -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"${file[$input]}":a
+./avrdude -C./avrdude.conf -pm328p -carduino -P"$PROGRAMMER" -vvvvvv -Uflash:w:"${file[$input]}":a
 
 while read -p "Hit ENTER to redo operation" ; do
 ./avrdude -C./avrdude.conf -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"${file[$input]}":a	
