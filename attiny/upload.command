@@ -46,13 +46,23 @@ echo
 echo "##############################################################################"
 echo
 
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	BINARY="avrdude.linux"
+	CONF="avrdude.conf.linux"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	BINARY="avrdude.mac"
+	CONF="avrdude.conf.mac"
+else
+	echo "Operating system not supported"
+fi
 
-../avrdude -C../avrdude.conf -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
-../avrdude -C../avrdude.conf -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -Uflash:w:"${file[$input]}":a 
+
+../"$BINARY" -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
+../avrdude -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -Uflash:w:"${file[$input]}":a 
 
 while read -p "Hit ENTER to redo operation" ; do
-../avrdude -C../avrdude.conf -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
-../avrdude -C../avrdude.conf -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -Uflash:w:"${file[$input]}":a 
+../"$BINARY" -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
+../"$BINARY" -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -Uflash:w:"${file[$input]}":a 
 done
 
 

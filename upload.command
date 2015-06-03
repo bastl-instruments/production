@@ -47,10 +47,21 @@ echo "##########################################################################
 echo
 
 
-./avrdude -C./avrdude.conf -pm328p -carduino -P"$PROGRAMMER" -vvvvvv -Uflash:w:"${file[$input]}":a
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	BINARY="avrdude.linux"
+	CONF="avrdude.conf.linux"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	BINARY="avrdude.mac"
+	CONF="avrdude.conf.mac"
+else
+	echo "Operating system not supported"
+fi
+
+
+./"$BINARY" -C./"$CONF" -pm328p -carduino -P"$PROGRAMMER" -vvvvvv -Uflash:w:"${file[$input]}":a
 
 while read -p "Hit ENTER to redo operation" ; do
-./avrdude -C./avrdude.conf -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"${file[$input]}":a	
+./"$BINARY" -C./"$CONF" -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"${file[$input]}":a	
 done
 
 
