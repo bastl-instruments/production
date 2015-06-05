@@ -57,12 +57,12 @@ else
 fi
 
 
-../"$BINARY" -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
-../avrdude -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -Uflash:w:"${file[$input]}":a 
+../"$BINARY" -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vv -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
+../avrdude -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vv -Uflash:w:"${file[$input]}":a 
 
 while read -p "Hit ENTER to redo operation" ; do
-../"$BINARY" -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
-../"$BINARY" -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -vvvv -Uflash:w:"${file[$input]}":a 
+../"$BINARY" -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -v -e -Uefuse:w:0xff:m -Uhfuse:w:0xdf:m -Ulfuse:w:0xe2:m
+../"$BINARY" -C../"$CONF" -pattiny85 -cstk500v1 -P"$PROGRAMMER" -b19200 -v -Uflash:w:"${file[$input]}":a 
 done
 
 

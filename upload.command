@@ -58,10 +58,10 @@ else
 fi
 
 
-./"$BINARY" -C./"$CONF" -pm328p -carduino -P"$PROGRAMMER" -vvvvvv -Uflash:w:"${file[$input]}":a
+./"$BINARY" -C./"$CONF" -pm328p -carduino -P"$PROGRAMMER" -vvv -Uflash:w:"${file[$input]}":a
 
 while read -p "Hit ENTER to redo operation" ; do
-./"$BINARY" -C./"$CONF" -pm328p -carduino -P"$PROGRAMMER" -v -v -Uflash:w:"${file[$input]}":a	
+./"$BINARY" -C./"$CONF" -pm328p -carduino -P"$PROGRAMMER" -v -Uflash:w:"${file[$input]}":a	
 done
 
 
