@@ -48,20 +48,20 @@ echo
 
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	BINARY="avrdude.linux"
-	CONF="avrdude.conf.linux"
+	BINARY="avrdude"
+	CONF="/etc/avrdude.conf"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	BINARY="avrdude.mac"
-	CONF="avrdude.conf.mac"
+	BINARY="./avrdude.mac"
+	CONF="./avrdude.conf.mac"
 else
 	echo "Operating system not supported"
 fi
 
 
-./"$BINARY" -C./"$CONF" -pm328p -carduino -P"$PROGRAMMER" -vvv -Uflash:w:"${file[$input]}":a
+"$BINARY" -C"$CONF" -pm328p -carduino -P"$PROGRAMMER" -vvv -Uflash:w:"${file[$input]}":a
 
 while read -p "Hit ENTER to redo operation" ; do
-./"$BINARY" -C./"$CONF" -pm328p -carduino -P"$PROGRAMMER" -v -Uflash:w:"${file[$input]}":a	
+"$BINARY" -C"$CONF" -pm328p -carduino -P"$PROGRAMMER" -v -Uflash:w:"${file[$input]}":a	
 done
 
 
