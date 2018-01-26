@@ -4,6 +4,11 @@ cd ${0%/*}
 
 listOutput=$(ls *.hex)
 
+LFUSE=FF
+HFUSE=DF
+EFUSE=FD
+
+
 count=0
 for j in $listOutput
 do
@@ -55,9 +60,12 @@ else
 fi
 
 
-"$BINARY" -C"$CONF" -pm328p -cavrisp2 -Pusb -v -Uflash:w:"${file[$input]}":a
+ 
+"$BINARY" -C"$CONF" -pm328p -cavrisp2 -Pusb -B100 -U efuse:w:0x"$EFUSE":m -U hfuse:w:0x"$HFUSE":m -U lfuse:w:0x"$LFUSE":m 
+"$BINARY" -C"$CONF" -pm328p -cavrisp2 -Pusb -B1 -Uflash:w:"${file[$input]}":a
 
 while read -p "Hit ENTER to redo operation" ; do
+"$BINARY" -C"$CONF" -pm328p -cavrisp2 -Pusb -v -B100 -U efuse:w:0x"$EFUSE":m -U hfuse:w:0x"$HFUSE":m -U lfuse:w:0x"$LFUSE":m 
 "$BINARY" -C"$CONF" -pm328p -cavrisp2 -Pusb -v -Uflash:w:"${file[$input]}":a	
 done
 
