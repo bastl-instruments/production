@@ -66,7 +66,7 @@ fi
 
 while read -p "Hit ENTER to redo operation" ; do
 "$BINARY" -C"$CONF" -pm328p -cavrisp2 -Pusb -v -B100 -U efuse:w:0x"$EFUSE":m -U hfuse:w:0x"$HFUSE":m -U lfuse:w:0x"$LFUSE":m 
-"$BINARY" -C"$CONF" -pm328p -cavrisp2 -Pusb -v -Uflash:w:"${file[$input]}":a	
+"$BINARY" -C"$CONF" -pm328p -cavrisp2 -Pusb -v -B1 -Uflash:w:"${file[$input]}":a	
 done
 
 
