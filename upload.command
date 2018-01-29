@@ -58,10 +58,16 @@ else
 fi
 
 
-"$BINARY" -C"$CONF" -pm328p -carduino -P"$PROGRAMMER" -vvv -Uflash:w:"${file[$input]}":a
+"$BINARY" -C"$CONF" -pm328p -carduino -P"$PROGRAMMER" -Uflash:w:"${file[$input]}":a
 
-while read -p "Hit ENTER to redo operation" ; do
-"$BINARY" -C"$CONF" -pm328p -carduino -P"$PROGRAMMER" -v -Uflash:w:"${file[$input]}":a	
+while read -s -n1 -p "Hit ENTER to run command again or ESC to restart" result; do
+
+if [ "$result" = "$(echo -e '\033')" ]; then
+	ScriptLoc=$(readlink -f "$0")
+	exec "$ScriptLoc"
+fi
+
+"$BINARY" -C"$CONF" -pm328p -carduino -P"$PROGRAMMER" -Uflash:w:"${file[$input]}":a	
 done
 
 
