@@ -1,0 +1,2 @@
+commands=('avrdude -?' 'sleep 1' 'avrdude --version' 'sleep 5' 'echo "abc"')
+names=("Some Flashing" "Something Else" "Will fail" "long" "last")
