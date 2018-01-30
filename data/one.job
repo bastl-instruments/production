@@ -1,2 +1,5 @@
-commands=('avrdude -?' 'sleep 1' 'avrdude --version' 'sleep 5' 'echo "abc"')
+# Example file for a completly custom script
+# One command will fail to show error handling
+
+commands=('avrdude -?' 'sleep 1' 'avrdude --version' 'avrdude -c123' 'echo "abc"')
 names=("Some Flashing" "Something Else" "Will fail" "long" "last")

@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# Sets FLASH_ARDUINO commands
+# which flashes HEXFILE via arduino Bootloader
+#
+# Also sets suggestions for a single commands
+# can be overridden by other scripts
+
+source "$TEMPLATEDIR/select_serialport"
+
+FLASH_ARDUINO="avrdude -pm328p -carduino -P$PROGRAMMER -U flash:w:$HEXFILE:i"
+
+commands=("$FLASH_ARDUINO")
+names=("Flash $HEXFILE via Arduino Bootloder on $PROGRAMMER")

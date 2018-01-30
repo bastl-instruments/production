@@ -1,0 +1,21 @@
+#! /bin/bash
+
+# This script make sure PROGRAMMER is set
+# to a a serial port from /dev/tty*
+
+if ! [[ $PROGRAMMER ]]; then
+  let i=0
+  W=()
+  all=$(ls -r /dev | grep "tty" 2>&1)
+  while read -r line; do
+    let i=$i+1
+    W+=($i "$line")
+  done < <( echo "$all" )
+  selected_index=$(dialog --title "Select Programmer" --menu "Choose the serial port the programmer is connected to" 30 80 25 "${W[@]}" 3>&2 2>&1 1>&3)
+  if [[ $? == 0 ]]; then
+    selected_filename="${W[$selected_index*2-1]}"
+    PROGRAMMER="/dev/$selected_filename"
+  else
+    exit 1
+  fi
+fi

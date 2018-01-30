@@ -1,2 +1,9 @@
-commands=('avrdude -?')
-names=("Quick")
+# Example file for flashing a hexfile via arduino bootloader
+# Commands and names are automatically set but could be overriden
+
+HEXFILE="custom.hex"
+source "$TEMPLATEDIR/arduino"
+
+# This would give the single command that was
+# set by the templates a custom name
+#names=("My Command")
