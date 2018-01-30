@@ -35,7 +35,11 @@ function update() {
 }
 
 function main_menu {
-  operation=`dialog --stdout --menu "Choose an operation" 10 30 10 "0" "Update" "1" "Run Job"`
+  operation=`dialog --stdout --menu \
+      "Choose an operation" 10 40 10 \
+      "0" "Load Updates from Git"\
+      "1" "Run Job"\
+      "2" "Show Log of last Command"`
   if [[ $? == 0 ]]; then
     case $operation in
     0)
@@ -44,11 +48,19 @@ function main_menu {
     1)
       job_menu
       ;;
+    2)
+      show_log
+      ;;
     esac
   else
     clear
     exit
   fi
+}
+
+function show_log {
+  dialog --title "Recent Command Log" --textbox "$LOGFILE" 30 80
+  main_menu
 }
 
 function job_menu {
@@ -79,7 +91,8 @@ function run_job {
     thisName=${names[$i]}
     text="$text\n$thisName"
     dialog --title "Running $1" --infobox "$text" 10 50
-    output=`$thisCommand > $LOGFILE 2>&1 `
+    echo "COMMAND: $thisCommand" > $LOGFILE; echo "---------------" >> $LOGFILE
+    output=`$thisCommand >> $LOGFILE 2>&1`
     if [[ $? != 0 ]]; then
       dialog --title "Command failed" --textbox "$LOGFILE" 30 80
       job_menu
