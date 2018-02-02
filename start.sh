@@ -13,12 +13,10 @@ function restart {
 function checkTools {
   if ! [[ $(command -v dialog) ]]; then
     echo "Dependency 'dialog' cannot be found!";
-    clear
     exit 1;
   fi
   if ! [[ $(command -v avrdude) ]]; then
-    dialog --title 'Dependency Missing' --msgbox 'Cannot find avrdude' 0 0;
-    clear
+    dialog --title 'Dependency Missing' --msgbox 'Cannot find avrdude' 10 50;
     exit 1;
   fi
 }
