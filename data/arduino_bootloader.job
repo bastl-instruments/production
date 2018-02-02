@@ -1,0 +1,12 @@
+# Install optiboot bootloader on a fresh atmega 328p
+
+LFUSE=FF
+HFUSE=DE
+EFUSE=FD
+source "$TEMPLATEDIR/set_fuses"
+
+HEXFILE="arduino_bootloader.hex"
+source "$TEMPLATEDIR/flash_isp"
+
+commands=("$SET_FUSES" "$FLASH_ISP")
+names=("Setting Fuses" "Flashing Bootloader Binary")

@@ -1,0 +1,2 @@
+HEXFILE="cvToDCMotor.hex"
+source "$TEMPLATEDIR/arduino"

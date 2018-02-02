@@ -1,0 +1,2 @@
+EXFILE="TRINITYtester.cpp.hex"
+source "$TEMPLATEDIR/arduino"

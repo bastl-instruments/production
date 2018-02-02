@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# Sets SET_FUSES command
+# which sets the fuses as defined by HFUSE LFUSE and EFUSE on attiny 85
+
+
+EFUSE=0xFF
+HFUSE=0xDF
+LFUSE=0xE2
+
+SET_FUSES="avrdude -pm328p -cavrisp2 -Pusb -B100 -U efuse:w:0x$EFUSE:m -U hfuse:w:0x$HFUSE:m -U lfuse:w:0x$LFUSE:m"

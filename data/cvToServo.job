@@ -1,0 +1,2 @@
+HEXFILE="cvToServo.hex"
+source "$TEMPLATEDIR/arduino"

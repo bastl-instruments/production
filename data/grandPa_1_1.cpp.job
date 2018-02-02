@@ -1,0 +1,2 @@
+HEXFILE="grandPa_1_1.cpp.hex"
+source "$TEMPLATEDIR/arduino"

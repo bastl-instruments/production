@@ -1,0 +1,2 @@
+HEXFILE="MONOFM.cpp.hex"
+source "$TEMPLATEDIR/arduino"

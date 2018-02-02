@@ -1,0 +1,2 @@
+HEXFILE="cvToSolenoid.hex"
+source "$TEMPLATEDIR/arduino"

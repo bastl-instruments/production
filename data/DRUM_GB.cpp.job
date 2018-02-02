@@ -1,0 +1,2 @@
+HEXFILE="DRUM_GB.cpp.hex"
+source "$TEMPLATEDIR/arduino"

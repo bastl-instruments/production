@@ -1,0 +1,18 @@
+#! /bin/bash
+
+# Sets FLASH_ARDUINO commands
+# which flashes HEXFILE via arduino Bootloader
+#
+# Also sets suggestions for a single commands
+# can be overridden by other scripts
+
+EFUSE=0xFF
+HFUSE=0xDF
+LFUSE=0xE2
+
+source "$TEMPLATEDIR/set_fuses_attiny"
+
+FLASH_ATTINY="avrdude -pattiny85 -cstk500v1 -P$PROGRAMMER -b19200 -vv -U flash:w:$HEXFILE:i"
+
+commands=("$SET_FUSES_ATTINY" "$FLASH_ATTINY")
+names=("Setting Fuses" "Flash $HEXFILE via on Attiny via $PROGRAMMER")

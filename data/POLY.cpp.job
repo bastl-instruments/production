@@ -1,0 +1,2 @@
+EXFILE="POLY.cpp.hex"
+source "$TEMPLATEDIR/arduino"

@@ -1,0 +1,2 @@
+HEXFILE="littleNerd_1_1.hex"
+source "$TEMPLATEDIR/arduino"

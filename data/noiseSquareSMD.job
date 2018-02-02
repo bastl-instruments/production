@@ -1,0 +1,2 @@
+EXFILE="noiseSquareSMD.hex"
+source "$TEMPLATEDIR/arduino"

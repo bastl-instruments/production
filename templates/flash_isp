@@ -1,0 +1,7 @@
+#! /bin/bash
+
+# Sets FLASH_ISP command
+# which flashes HEXFILE via avrisp2 on atmega328
+# assumes fuses are set to high speed oscillator already
+
+SET_FUSES="avrdude -v -pm328p -cavrisp2 -Pusb -B1 -Uflash:w:$HEXFILE:a"

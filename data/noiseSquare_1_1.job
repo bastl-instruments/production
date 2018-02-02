@@ -1,0 +1,2 @@
+EXFILE="noiseSquare_1_1.hex"
+source "$TEMPLATEDIR/arduino"

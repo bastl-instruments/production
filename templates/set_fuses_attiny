@@ -1,0 +1,8 @@
+#! /bin/bash
+
+# Sets SET_FUSES_ATTINY command
+# which sets the fuses as defined by HFUSE LFUSE and EFUSE on atmega328
+
+source "$TEMPLATEDIR/select_serialport"
+
+SET_FUSES_ATTINY="avrdude -pm328p -pattiny85 -cstk500v1 -P$PROGRAMMER -b19200 -vv -e efuse:w:0x$EFUSE:m -U hfuse:w:0x$HFUSE:m -U lfuse:w:0x$LFUSE:m"

@@ -1,0 +1,2 @@
+HEXFILE="grandPaCinnamonCalibrtion.hex"
+source "$TEMPLATEDIR/arduino"

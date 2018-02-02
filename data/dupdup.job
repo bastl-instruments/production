@@ -1,0 +1,2 @@
+HEXFILE="dupdup.hex"
+source "$TEMPLATEDIR/arduino"

@@ -1,0 +1,2 @@
+EXFILE="XOR_SYNTH.cpp.hex"
+source "$TEMPLATEDIR/arduino"

@@ -69,7 +69,7 @@ function job_menu {
     let i=$i+1
     W+=($i "$line")
   done < <( echo "$all" )
-  selected_index=$(dialog --title "Available Jobs" --menu "Chose job to run" 30 80 25 "${W[@]}" 3>&2 2>&1 1>&3)
+  selected_index=$(dialog --title "Available Jobs" --menu "Choose job to run" 30 80 25 "${W[@]}" 3>&2 2>&1 1>&3)
   if [[ $? == 0 ]]; then
     selected_filename="${W[$selected_index*2-1]}"
     run_job $selected_filename

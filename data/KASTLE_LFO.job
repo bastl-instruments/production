@@ -1,0 +1,2 @@
+HEXFILE="KASTLE_LFO.hex"
+source "$TEMPLATEDIR/attiny"

@@ -1,0 +1,2 @@
+HEXFILE="cvTrinity_TOP.hex"
+source "$TEMPLATEDIR/arduino"

@@ -1,0 +1,2 @@
+EXFILE="SPA.hex"
+source "$TEMPLATEDIR/arduino"
