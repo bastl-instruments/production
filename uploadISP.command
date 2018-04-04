@@ -49,15 +49,8 @@ echo "##########################################################################
 echo
 
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	BINARY="avrdude"
-	CONF="/etc/avrdude.conf"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-	BINARY="./avrdude.mac"
-	CONF="./avrdude.conf.mac"
-else
-	echo "Operating system not supported"
-fi
+BINARY="avrdude"
+CONF="/etc/avrdude.conf"
 
  
 "$BINARY" -C"$CONF" -pm328p -cavrisp2 -Pusb -B100 -U efuse:w:0x"$EFUSE":m -U hfuse:w:0x"$HFUSE":m -U lfuse:w:0x"$LFUSE":m 
