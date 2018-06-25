@@ -3,7 +3,7 @@
 cd ${0%/*}
 
 LFUSE=FF
-HFUSE=DE
+HFUSE=D6
 EFUSE=FD
 
 BOOTLOADER_HEX=arduino_bootloader.hex
